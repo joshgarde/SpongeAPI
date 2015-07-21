@@ -24,10 +24,10 @@
  */
 package org.spongepowered.api.world.extent;
 
-import com.flowpowered.math.matrix.Matrix4d;
 import com.flowpowered.math.vector.Vector3i;
 import org.spongepowered.api.block.BlockState;
 import org.spongepowered.api.block.BlockType;
+import org.spongepowered.api.util.DiscreteTransform3;
 import org.spongepowered.api.util.PositionOutOfBoundsException;
 
 /**
@@ -150,11 +150,10 @@ public interface BlockVolume {
      * This does not copy the blocks, it only provides a new view of the
      * storage.
      *
-     * @param transform The transformation to be applied, encoded in a matrix.
-     *     A 4D matrix is used so that translations can be included in it.
+     * @param transform The transformation to be applied
      * @return The new volume with the transform
      */
-    BlockVolume getBlockView(Matrix4d transform);
+    BlockVolume getBlockView(DiscreteTransform3 transform);
 
     /**
      * Returns a new volume that is translated so that

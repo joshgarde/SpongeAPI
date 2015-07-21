@@ -24,8 +24,8 @@
  */
 package org.spongepowered.api.world.extent;
 
-import com.flowpowered.math.matrix.Matrix3d;
 import com.flowpowered.math.vector.Vector2i;
+import org.spongepowered.api.util.DiscreteTransform2;
 import org.spongepowered.api.util.PositionOutOfBoundsException;
 import org.spongepowered.api.world.biome.BiomeType;
 
@@ -76,12 +76,11 @@ public interface MutableBiomeArea extends BiomeArea {
      * This does not copy the biomes, it only provides a new view of the
      * storage.
      *
-     * @param transform The transformation to be applied, encoded in a matrix.
-     *     A 3D matrix is used so that translations can be included in it.
+     * @param transform The transformation to be applied
      * @return The new area with the transform
      */
     @Override
-    MutableBiomeArea getBiomeView(Matrix3d transform);
+    MutableBiomeArea getBiomeView(DiscreteTransform2 transform);
 
     /**
      * Returns a new area that is translated so that
